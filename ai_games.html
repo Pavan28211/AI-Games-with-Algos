@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Games</title>
+<style>
+:root{--bg:#060b12;--pn:#0b1623;--bd:#12324a;--ac:#22d3ee;--pu:#8b5cf6;--tx:#cfe8f5;--mut:#6f93aa;--cl:#0f2335;--ok:#16a34a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef4f8;--pn:#fff;--bd:#c5d6e2;--ac:#0e7490;--pu:#6d28d9;--tx:#12303f;--mut:#567;--cl:#e3eef5}}
+:root[data-theme="light"]{--bg:#eef4f8;--pn:#fff;--bd:#c5d6e2;--ac:#0e7490;--pu:#6d28d9;--tx:#12303f;--mut:#567;--cl:#e3eef5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--ac);background:var(--pn)}
+.logo{font-weight:800;font-size:1.2rem}.logo b{color:var(--ac)}.logo i{background:var(--ac);color:var(--bg);padding:2px 8px;border-radius:8px;font-style:normal;margin-right:6px}
+nav{display:flex;gap:6px}nav button{border:0;background:none;color:var(--mut);padding:8px 12px;border-bottom:2px solid transparent;font:inherit;cursor:pointer}nav button.on{color:var(--ac);border-color:var(--ac)}
+#app{display:flex;min-height:calc(100vh - 60px)}aside{width:210px;padding:16px 10px;border-right:1px solid var(--bd);flex:none}
+aside small{color:var(--mut);letter-spacing:2px;display:block;margin:0 8px 10px}
+aside button{display:block;width:100%;text-align:left;margin-bottom:6px;padding:11px 12px;border:0;border-left:3px solid transparent;border-radius:6px;background:none;color:var(--tx);font:inherit;cursor:pointer}
+aside button.on{background:var(--cl);border-color:var(--ac);color:var(--ac);font-weight:700}
+main{flex:1;padding:18px;min-width:0}.pn{background:var(--pn);border:1px solid var(--bd);border-radius:16px;padding:16px;max-width:560px;margin:0 auto 14px}
+h2{margin:0 0 4px;font-size:1.25rem}.d{color:var(--mut);margin:0 0 12px}
+button.b,.bar button{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--cl);color:var(--tx);cursor:pointer}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;align-items:center}.bar .pb{background:var(--ac);color:var(--bg);border:0;font-weight:700}
+select{font:inherit;padding:7px;border-radius:8px;background:var(--cl);color:var(--tx);border:1px solid var(--bd)}
+.sb{display:flex;justify-content:space-around;text-align:center;color:var(--mut);font-size:.75rem;padding:8px;border:1px solid var(--bd);border-radius:12px;margin-bottom:12px}.sb b{display:block;font-size:1.5rem;color:var(--tx)}
+.tb{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:320px;margin:auto}
+.c{aspect-ratio:1;border-radius:12px;border:1px solid var(--bd);background:var(--cl);font-size:2.4rem;font-weight:800;padding:0;cursor:pointer;font-family:inherit}
+.c.X{color:var(--ac)}.c.O{color:var(--pu)}.c.w{outline:3px solid var(--ok)}
+.st{text-align:center;font-weight:700;min-height:1.3em}.note{color:var(--mut);border:1px solid var(--bd);border-radius:10px;padding:10px;margin-top:8px}
+.sg{display:grid;grid-template-columns:repeat(9,1fr);max-width:360px;margin:auto;border:2px solid var(--ac)}
+.sg input{width:100%;aspect-ratio:1;text-align:center;border:1px solid var(--bd);background:var(--cl);color:var(--tx);font:700 1.1rem inherit;padding:0;min-width:0}
+.sg input.s{color:var(--ac)}.sg input.g{background:var(--bd)}
+.mz{display:grid;grid-template-columns:repeat(15,1fr);max-width:420px;margin:auto;gap:1px;background:var(--bd);border:1px solid var(--bd)}
+.mz div{aspect-ratio:1;background:var(--cl);cursor:pointer}.mz .wl{background:#64748b}.mz .v{background:#0e7490}.mz .p{background:#facc15}.mz .st1{background:var(--ok)}.mz .en{background:#ef4444}
+.qb{display:grid;max-width:420px;margin:auto;border:1px solid var(--bd)}.qb div{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--pu)}.qb .a{background:var(--cl)}.qb .z{background:var(--bd)}
+.gc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:760px;margin:auto}
+.gc .pn{margin:0;cursor:pointer}.gc h3{color:var(--ac);margin:0 0 6px}
+@media(max-width:700px){#app{flex-direction:column}aside{width:auto;display:flex;gap:6px;overflow-x:auto;border-right:0;border-bottom:1px solid var(--bd);padding:8px}aside small{display:none}aside button{width:auto;white-space:nowrap;margin:0}main{padding:12px}}
+</style></head><body>
+<header><div class="logo"><i>◎</i>AI <b>Games</b></div>
+<nav><button id="nh">⌂ HOME</button><button id="ng">◆ GAMES</button></nav><button class="b" id="th">☀</button></header>
+<div id="app"><aside id="side"></aside><main id="main"></main></div>
+<script>
+const $=s=>document.querySelector(s);let TM=null;const S={X:0,D:0,O:0};
+const G={tictactoe:['X○ Tic Tac Toe',ttt,'Minimax with alpha-beta pruning. Play against an unbeatable AI.'],
+sudoku:['# Sudoku Solver',sud,'Backtracking search fills the grid and counts every step.'],
+maze:['⊞ Maze Pathfinder',maze,'Draw walls, then compare BFS and A* search.'],
+nqueens:['♛ N-Queens Solver',nq,'Backtracking finds every way to place N safe queens.']};
+function go(n){location.hash=n;route(n)}
+function route(n){clearInterval(TM);n=n||location.hash.slice(1)||'home';if(n!=='home'&&!G[n])n='home';
+ $('#nh').className=n==='home'?'on':'';$('#ng').className=n==='home'?'':'on';
+ $('#side').innerHTML='<small>SELECT GAME</small>';
+ for(const k in G){const b=document.createElement('button');b.textContent=G[k][0];b.className=k===n?'on':'';b.onclick=()=>go(k);$('#side').appendChild(b)}
+ const m=$('#main');m.innerHTML='';
+ if(n==='home'){m.innerHTML='<div class="pn" style="text-align:center"><h2>AI Games with Algorithms</h2><p class="d">Four classic AI problems, each solved by a search algorithm you can watch.</p></div><div class="gc">'+Object.keys(G).map(k=>`<div class="pn" onclick="go('${k}')"><h3>${G[k][0]}</h3><p class="d">${G[k][2]}</p></div>`).join('')+'</div>'}
+ else G[n][1](m)}
+$('#nh').onclick=()=>go('home');$('#ng').onclick=()=>go('tictactoe');
+$('#th').onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==='light'?'dark':'light'};
+/* ---- Tic Tac Toe ---- */
+function ttt(m){
+ m.innerHTML=`<div class="pn"><h2>Tic Tac Toe</h2><p class="d">You are X. The AI plays O using minimax.</p>
+ <div class="sb"><div><b id="sx"></b>✕ PLAYER X</div><div><b id="sd"></b>DRAWS</div><div><b id="so"></b>○ PLAYER O</div></div>
+ <div class="tb" id="tb"></div><p class="st" id="st"></p>
+ <div class="bar"><button class="pb" id="nw">New game</button><button id="af">AI goes first</button></div>
+ <div class="note" id="nt">Alpha-beta pruning skips branches that cannot change the final decision, reducing processing time significantly.</div></div>`;
+ const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];let b,over,cnt;
+ const win=b=>L.find(l=>b[l[0]]&&b[l[0]]===b[l[1]]&&b[l[1]]===b[l[2]]);
+ function mm(p,d,a,be,pr){cnt++;const w=win(b);if(w)return b[w[0]]==='O'?10-d:d-10;if(b.every(Boolean))return 0;
+  let best=p==='O'?-99:99;for(let i=0;i<9;i++)if(!b[i]){b[i]=p;const s=mm(p==='O'?'X':'O',d+1,a,be,pr);b[i]=null;
+   if(p==='O'){best=Math.max(best,s);a=Math.max(a,s)}else{best=Math.min(best,s);be=Math.min(be,s)}if(pr&&be<=a)break}return best}
+ function pick(pr){cnt=0;let bs=-99,bm=0;for(let i=0;i<9;i++)if(!b[i]){b[i]='O';const s=mm('X',1,-99,99,pr);b[i]=null;if(s>bs){bs=s;bm=i}}return[bm,cnt]}
+ function draw(){const w=win(b);$('#tb').innerHTML='';b.forEach((v,i)=>{const e=document.createElement('button');e.className='c '+(v||'')+(w&&w.includes(i)?' w':'');e.textContent=v||'';e.onclick=()=>play(i);$('#tb').appendChild(e)});
+  $('#sx').textContent=S.X;$('#sd').textContent=S.D;$('#so').textContent=S.O}
+ function end(){const w=win(b);if(w){over=1;const t=b[w[0]];S[t]++;$('#st').textContent=t==='X'?'You win!':'AI wins.'}else if(b.every(Boolean)){over=1;S.D++;$('#st').textContent='Draw.'}draw();return over}
+ function ai(){const f=pick(false),p=pick(true);b[p[0]]='O';$('#nt').innerHTML=`Alpha-beta pruning skips branches that cannot change the final decision, reducing processing time significantly.<br><b>Last AI move:</b> ${p[1].toLocaleString()} nodes with pruning vs ${f[1].toLocaleString()} with plain minimax.`;if(!end())$('#st').textContent='Your turn'}
+ function play(i){if(over||b[i])return;b[i]='X';if(!end())ai()}
+ function reset(f){b=Array(9).fill(null);over=0;$('#st').textContent='Your turn';draw();if(f)ai()}
+ $('#nw').onclick=()=>reset(0);$('#af').onclick=()=>reset(1);reset(0)}
+/* ---- Sudoku ---- */
+function sud(m){
+ const P='530070000600195000098000060800060003400803001700020006060000280000419005000080079';
+ m.innerHTML=`<div class="pn"><h2>Sudoku Solver</h2><p class="d">Type your own puzzle or load the sample, then solve.</p><div class="sg" id="sg"></div>
+ <div class="bar"><button class="pb" id="sv">Solve</button><button id="sm">Sample</button><button id="cl">Clear</button></div><p class="st" id="st"></p></div>`;
+ const I=[];for(let i=0;i<81;i++){const e=document.createElement('input');e.maxLength=1;e.inputMode='numeric';
+  e.oninput=()=>{e.value=e.value.replace(/[^1-9]/g,'');e.className=''};
+  const r=i/9|0,c=i%9;e.style.borderRight=c%3==2&&c<8?'2px solid var(--ac)':'';e.style.borderBottom=r%3==2&&r<8?'2px solid var(--ac)':'';$('#sg').appendChild(e);I.push(e)}
+ const load=s=>I.forEach((e,i)=>{e.value=s[i]>0?s[i]:'';e.className=''});
+ const ok=(g,i,v)=>{const r=i/9|0,c=i%9;for(let k=0;k<9;k++){if(g[r*9+k]===v&&r*9+k!==i)return 0;if(g[k*9+c]===v&&k*9+c!==i)return 0}
+  const br=r-r%3,bc=c-c%3;for(let a=0;a<3;a++)for(let d=0;d<3;d++){const j=(br+a)*9+bc+d;if(g[j]===v&&j!==i)return 0}return 1};
+ $('#sm').onclick=()=>{load(P);$('#st').textContent=''};$('#cl').onclick=()=>{load('0'.repeat(81));$('#st').textContent=''};
+ $('#sv').onclick=()=>{const g=I.map(e=>+e.value||0),giv=g.map(v=>v>0);let steps=0;
+  if(g.some((v,i)=>v&&!ok(g,i,v))){$('#st').textContent='Puzzle has a conflict.';return}
+  function f(i){while(i<81&&g[i])i++;if(i===81)return 1;for(let v=1;v<=9;v++)if(ok(g,i,v)){g[i]=v;steps++;if(steps>3e6)return 0;if(f(i+1))return 1;g[i]=0}return 0}
+  if(f(0)){g.forEach((v,i)=>{I[i].value=v;I[i].className=giv[i]?'':'s'});$('#st').textContent=`Solved in ${steps.toLocaleString()} placements.`}else $('#st').textContent='No solution found.'}
+ load(P)}
+/* ---- Maze ---- */
+function maze(m){
+ const N=15,E=N*N-1;let wall=Array(N*N).fill(0),busy=0;
+ m.innerHTML=`<div class="pn"><h2>Maze Pathfinder</h2><p class="d">Click cells to add or remove walls. Green is start, red is goal.</p><div class="mz" id="mz"></div>
+ <div class="bar"><select id="al"><option value="bfs">BFS</option><option value="astar">A* (Manhattan)</option></select><button class="pb" id="sv">Find path</button><button id="rd">Random maze</button><button id="cl">Clear</button></div><p class="st" id="st"></p></div>`;
+ const C=[];for(let i=0;i<N*N;i++){const e=document.createElement('div');e.onclick=()=>{if(busy||i===0||i===E)return;wall[i]^=1;paint()};$('#mz').appendChild(e);C.push(e)}
+ function paint(){C.forEach((e,i)=>e.className=i===0?'st1':i===E?'en':wall[i]?'wl':'')}
+ $('#cl').onclick=()=>{if(busy)return;wall.fill(0);paint();$('#st').textContent=''};
+ $('#rd').onclick=()=>{if(busy)return;wall=wall.map((_,i)=>i&&i!==E&&Math.random()<.28?1:0);paint();$('#st').textContent=''};
+ $('#sv').onclick=()=>{if(busy)return;paint();const alg=$('#al').value,dist=Array(N*N).fill(1e9),prev=[],closed={},order=[],h=i=>Math.abs((i/N|0)-(N-1))+Math.abs(i%N-(N-1));let open=[0];dist[0]=0;
+  while(open.length){if(alg==='astar')open.sort((a,b)=>dist[a]+h(a)-dist[b]-h(b));const u=open.shift();if(closed[u])continue;closed[u]=1;order.push(u);if(u===E)break;
+   for(const[dr,dc]of[[1,0],[-1,0],[0,1],[0,-1]]){const r=(u/N|0)+dr,c=u%N+dc;if(r<0||c<0||r>=N||c>=N)continue;const v=r*N+c;if(wall[v]||closed[v])continue;if(dist[u]+1<dist[v]){dist[v]=dist[u]+1;prev[v]=u;open.push(v)}}}
+  const path=[];if(closed[E])for(let u=E;u!==undefined;u=prev[u])path.push(u);
+  busy=1;let k=0;$('#st').textContent='Searching...';TM=setInterval(()=>{
+   if(k<order.length){const i=order[k++];if(i&&i!==E)C[i].className='v'}
+   else{clearInterval(TM);path.forEach(i=>{if(i&&i!==E)C[i].className='p'});busy=0;
+    $('#st').textContent=path.length?`${alg==='bfs'?'BFS':'A*'}: path length ${path.length-1}, ${order.length} cells explored.`:`No path. ${order.length} cells explored.`}},18)};
+ paint()}
+/* ---- N-Queens ---- */
+function nq(m){
+ m.innerHTML=`<div class="pn"><h2>N-Queens Solver</h2><p class="d">Backtracking places one queen per row so none attack each other.</p><div class="qb" id="qb"></div>
+ <div class="bar"><label>N <select id="n">${[4,5,6,7,8,9,10].map(n=>`<option${n==8?' selected':''}>${n}</option>`).join('')}</select></label><button id="pv">◀ Prev</button><button class="pb" id="nx">Next ▶</button></div><p class="st" id="st"></p></div>`;
+ let sols=[],k=0,nodes=0;
+ function solve(){const n=+$('#n').value;sols=[];nodes=0;const q=[];
+  (function f(r){nodes++;if(r===n){sols.push(q.slice());return}for(let c=0;c<n;c++){if(q.every((x,i)=>x!==c&&Math.abs(x-c)!==r-i)){q[r]=c;f(r+1);q.length=r}}})(0);k=0;show()}
+ function show(){const n=+$('#n').value,s=sols[k];const qb=$('#qb');qb.style.gridTemplateColumns=`repeat(${n},1fr)`;qb.innerHTML='';
+  for(let r=0;r<n;r++)for(let c=0;c<n;c++){const d=document.createElement('div');d.className=(r+c)%2?'z':'a';d.textContent=s&&s[r]===c?'♛':'';qb.appendChild(d)}
+  $('#st').textContent=sols.length?`Solution ${k+1} of ${sols.length} (${nodes.toLocaleString()} backtracking calls)`:'No solutions.'}
+ $('#n').onchange=solve;$('#nx').onclick=()=>{k=(k+1)%sols.length;show()};$('#pv').onclick=()=>{k=(k-1+sols.length)%sols.length;show()};solve()}
+route();
+</script></body></html>
